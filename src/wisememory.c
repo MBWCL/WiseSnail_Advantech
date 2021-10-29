@@ -28,12 +28,13 @@ void *__WiseMem_Alloc(int len, char *file, int line) {
     char *result = NULL;
     //printf("\033[30;42malloc %d, remain %d , max %d <%s, %d>\033[0m\n", len, remain, size, file, line);
     
-    if(len > MAX_ALLOC_SIZE) len = MAX_ALLOC_SIZE;
+    //if(len > MAX_ALLOC_SIZE) len = MAX_ALLOC_SIZE;
     while(len+sizeof(int) > remain) {
         if(dynamic) {
             remain+=4096;
             size+=4096;
             buffer = realloc(buffer, size);
+            if (buffer == NULL) buffer = malloc(size);
         } else return NULL;
     }
     result = buffer + current;

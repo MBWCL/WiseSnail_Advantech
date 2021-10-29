@@ -707,8 +707,8 @@ void WiseAgent_Write(char *deviceMac, WiseAgentData* data, int count) {
 	if(WiseAccess_FindDevice(deviceId) < 0) return;
 	
     topic = (char *)WiseMem_Alloc(1024);
-    message = (char *)WiseMem_Alloc(8192);
-    senhublist = (char *)WiseMem_Alloc(4096);
+    message = (char *)WiseMem_Alloc(61440);
+    senhublist = (char *)WiseMem_Alloc(61440);
     infoString = (char *)WiseMem_Alloc(1024);
     netString = (char *)WiseMem_Alloc(1024);
     actionString = (char *)WiseMem_Alloc(1024);
